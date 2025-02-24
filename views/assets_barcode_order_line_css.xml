@@ -1,13 +1,18 @@
-<template id="assets_barcode_order_line_css" name="Barcode Order Line CSS" inherit_id="web.assets_backend">
-        <xpath expr="." position="inside">
-            <style>
-                .oe_hidden_field {
-                    visibility: hidden;
-                    position: absolute;
-                    height: 0;
-                    width: 0;
-                    overflow: hidden;
-                }
-            </style>
-        </xpath>
-</template>
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <template id="assets_barcode_order_line_css" name="Barcode Order Line CSS" inherit_id="web.assets_backend">
+      <xpath expr="." position="inside">
+        <style>
+          .oe_hidden_field {
+            visibility: hidden;
+            position: absolute;
+            height: 0;
+            width: 0;
+            overflow: hidden;
+          }
+        </style>
+      </xpath>
+    </template>
+  </data>
+</odoo>
