@@ -11,7 +11,7 @@
         "views/barcode_scan_wizard_views.xml",
         "views/sale_order_views.xml",
         "views/stock_picking_views.xml",
-        "views/assets_barcode_order_line_css.xml",
+        "views/assets.xml",
     ],
     "assets": {
         "web.assets_backend": [
