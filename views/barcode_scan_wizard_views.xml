@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_barcode_scan_wizard_form" model="ir.ui.view">
+        <field name="name">barcode.scan.wizard.form</field>
+        <field name="model">barcode.scan.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Escanear Código de Barras">
+                <sheet>
+                    <group>
+                        <div class="o_barcode_scanner_widget">
+                            <div id="barcode-scanner" style="width: 100%; height: 300px; background-color: #000;"></div>
+                            <!-- Se oculta el campo usando la clase oe_hidden_field para que se renderice en el DOM -->
+                            <div class="oe_hidden_field">
+                                <field name="barcode"/>
+                            </div>
+                            <button type="button" name="stop_scanner" class="btn btn-secondary" id="stop-scanner">
+                                Detener Escaneo
+                            </button>
+                        </div>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Agregar al Pedido" type="object" name="action_process_barcode" class="btn-primary"/>
+                    <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                </footer>
+                <script type="text/javascript">
+                    <![CDATA[
+                    odoo.define('barcode_order_line.start_scanner_on_wizard', [], function (require) {
+                        "use strict";
+                        const scanner = require('barcode_order_line.barcode_scanner');
+                        setTimeout(function () {
+                            scanner.startBarcodeScanner();
+                        }, 500);
+                    });
+                    ]]>
+                </script>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_barcode_scan_wizard" model="ir.actions.act_window">
+        <field name="name">Escanear Código de Barras</field>
+        <field name="res_model">barcode.scan.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

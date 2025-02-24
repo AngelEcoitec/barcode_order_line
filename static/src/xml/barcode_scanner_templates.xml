@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="barcode_scanner_template">
+        <div class="o_barcode_scanner_widget">
+            <!-- Contenedor para mostrar el vídeo -->
+            <div id="barcode-scanner" style="width: 100%; height: 300px; background-color: #000;"></div>
+            <!-- Campo oculto para almacenar el código detectado -->
+            <input type="hidden" id="barcode-result"/>
+            <!-- Botón para detener el escaneo (opcional) -->
+            <button type="button" class="btn btn-secondary" id="stop-scanner">Detener Escaneo</button>
+        </div>
+        <script type="text/javascript">
+            odoo.define('barcode_order_line.start_scanner_on_load', function (require) {
+                "use strict";
+                const scanner = require('barcode_order_line.barcode_scanner');
+                // Inicia el escáner cuando se cargue la plantilla
+                scanner.startBarcodeScanner();
+            });
+        </script>
+    </template>
+</odoo>
